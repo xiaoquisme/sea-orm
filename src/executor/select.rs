@@ -361,14 +361,6 @@ where
         }
     }
 
-    /// Select one Model
-    pub async fn one<'a, C>(self, db: &C) -> Result<Option<(E::Model, Option<F::Model>)>, DbErr>
-    where
-        C: ConnectionTrait,
-    {
-        self.into_model().one(db).await
-    }
-
     /// Stream the result of the operation
     pub async fn stream<'a: 'b, 'b, C>(
         self,
